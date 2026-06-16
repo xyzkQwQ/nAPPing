@@ -1,48 +1,68 @@
-import { useState } from "react";
+import { useEffect } from "react";
 
 import LogoCat from "./assets/LogoCat.webp";
 import CatSleeping from "./assets/CatSleeping.webp";
 
-// import CircleDark from "./assets/CircleDark.svg";
-
 import "./Page2.css";
 
+/**
+ * Deuxième composant affiché
+ *
+ */
+function Page2({ time, setTime }) {
+  // const [timeLeft, setTimeLeft] = useState(time);
 
-function Page2() {
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setTime((prev) => {
+        if (prev <= 0) {
+          clearInterval(timer);
+          return 0;
+        }
+        return prev - 1;
+      });
+    }, 1000);
 
- return (
-    <>
-     <div className="container">
-     {/* HEADER */}
-          <header className="header">
-    
-            <div className="logoCat">
-              <img
-                src={LogoCat}
-                className="logo"
-                alt="logo"
-              />
-    
-              <span>nAPPing</span>
-            </div>
-    
-            <h1>Sieste en cours...</h1>
-    
-            <img
-              src={CatSleeping}
-              className="sleeping"
-              alt="chat"
-            />
-    
-          </header>
+    return () => clearInterval(timer);
+  }, []);
 
-    {/* Bouton */}
+  const minutes = Math.floor(time / 60);
+  const seconds = time % 60;
 
-      <button className="start-btn">
-        Arrêter la sieste
-      </button>
+  return (
+    <div className="container">
+      {/* HEADER */}
+      <header className="header">
+        <div className="logoCat">
+          <img src={LogoCat} className="logo" alt="logo" />
+
+          <span>nAPPing</span>
+        </div>
+
+        <h1>Sieste en cours...</h1>
+
+        <img src={CatSleeping} className="sleeping" alt="chat" />
+      </header>
+
+      {/* TIMER */}
+
+      <section className="timer-section">
+        <div className="circle">
+          <div className="time">
+            {minutes}:{seconds.toString().padStart(2, "0")}
+          </div>
+
+          <div className="remaining">temps restant</div>
+        </div>
+
+        <h2>Sieste prévue jusqu'à 14h30</h2>
+      </section>
+
+      {/* BOUTON */}
+
+      <button className="start-btn">Arrêter la sieste</button>
     </div>
-    </>
- );
+  );
 }
+
 export default Page2;

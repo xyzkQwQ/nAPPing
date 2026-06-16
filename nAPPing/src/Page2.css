@@ -27,14 +27,14 @@ body {
   border-radius: 12px;
 }
 
-
 /* HEADER */
 
 .header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 80px;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 5px;
 }
 
 .logoCat {
@@ -64,6 +64,62 @@ body {
 .sleeping {
   width: 130px;
 }
+
+/* TIMER */
+
+.timer-section {
+
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  margin-top:20px;
+
+}
+
+
+
+.circle {
+
+  width:280px;
+  height:280px;
+  border-radius:50%;
+  border:20px solid #a8a8a8;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+
+}
+
+
+
+.time {
+
+  font-size:50px;
+  font-weight:900;
+
+}
+
+
+
+.remaining {
+
+  font-size:24px;
+  margin-top:5px;
+
+}
+
+
+
+.timer-section h2 {
+
+  color: black;
+  margin-top:20px;
+  font-size:32px;
+  font-weight:900;
+
+}
+
 
 /* BOUTON */
 
