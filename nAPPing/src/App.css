@@ -3,15 +3,12 @@
 * {
   margin: 0;
   padding: 0;
-
   box-sizing: border-box;
-
   font-family: Arial, sans-serif;
-
   color: black;
-
   font-weight: 700;
 }
+
 
 /* PAGE */
 
@@ -23,17 +20,11 @@ body {
 
 .container {
   width: 90%;
-
   max-width: 1500px;
-
   margin: 30px auto;
-
   padding: 40px;
-
   background: white;
-
   border: 2px solid #d6d6d6;
-
   border-radius: 12px;
 }
 
@@ -41,21 +32,15 @@ body {
 
 .header {
   display: flex;
-
   justify-content: space-between;
-
   align-items: center;
-
   margin-bottom: 80px;
 }
 
 .logoCat {
   display: flex;
-
   flex-direction: column;
-
   align-items: center;
-
   gap: 10px;
 }
 
@@ -65,19 +50,14 @@ body {
 
 .logoCat span {
   color: #8c8c8c;
-
   font-size: 26px;
-
   font-weight: 900;
 }
 
 .header h1 {
   color: black;
-
   font-size: 56px;
-
   font-weight: 900;
-
   text-align: center;
 }
 
@@ -89,9 +69,7 @@ body {
 
 .row {
   display: flex;
-
   gap: 60px;
-
   margin-bottom: 60px;
 }
 
@@ -103,11 +81,8 @@ body {
 
 label {
   display: block;
-
   margin-bottom: 18px;
-
   font-size: 30px;
-
   font-weight: 900;
 }
 
@@ -118,11 +93,8 @@ label {
 .select-box,
 .duration-group {
   height: 90px;
-
   border: 2px solid #d0d0d0;
-
   border-radius: 12px;
-
   background: white;
 }
 
@@ -130,59 +102,38 @@ label {
 
 .input-box {
   display: flex;
-
   align-items: center;
-
   justify-content: center;
-
   position: relative;
-
-  padding: 0 60px;
+  padding: 0 157px;
 }
 
 .input-box input {
   width: 100%;
-
   height: 100%;
-
   border: none;
-
   outline: none;
-
   background: transparent;
-
   text-align: center;
-
   font-size: 30px;
-
   font-weight: 900;
-
   cursor: pointer;
-
   appearance: none;
 }
 
 input[type="time"]::-webkit-calendar-picker-indicator {
   opacity: 0;
-
   position: absolute;
-
   right: 20px;
-
   width: 100%;
-
   height: 100%;
-
   cursor: pointer;
 }
 
 .input-box .icon {
   position: absolute;
-
   right: 25px;
-
   width: 30px;
-
   pointer-events: none;
 }
 
@@ -190,7 +141,6 @@ input[type="time"]::-webkit-calendar-picker-indicator {
 
 .icon {
   width: 32px;
-
   height: 32px;
 }
 
@@ -198,21 +148,15 @@ input[type="time"]::-webkit-calendar-picker-indicator {
 
 .duration-group {
   display: flex;
-
   overflow: hidden;
 }
 
 .duration-group button {
   flex: 1;
-
   border: none;
-
   background: white;
-
   font-size: 28px;
-
   font-weight: 900;
-
   cursor: pointer;
 }
 
@@ -230,27 +174,18 @@ input[type="time"]::-webkit-calendar-picker-indicator {
 
 .switch-box {
   display: flex;
-
   align-items: center;
-
   justify-content: center;
-
   gap: 70px;
-
   padding: 0 30px;
 }
 
 .left {
   display: flex;
-
   align-items: center;
-
   justify-content: center;
-
   width: 100%;
-
   gap: 15px;
-
   font-size: 24px;
 }
 
@@ -259,10 +194,8 @@ input[type="time"]::-webkit-calendar-picker-indicator {
 }
 
 .switch-box input {
-  width: 24px;
-
-  height: 24px;
-
+  width: 25px;
+  height: 25px;
   cursor: pointer;
 }
 
@@ -270,49 +203,31 @@ input[type="time"]::-webkit-calendar-picker-indicator {
 
 .select-box {
   position: relative;
-
   display: flex;
-
   align-items: center;
-
   justify-content: center;
-
   height: 90px;
 }
 
 .select-box select {
   width: 100%;
-
   height: 100%;
-
   border: none;
-
   outline: none;
-
   background: transparent;
-
   appearance: none;
-
   text-align: center;
-
   text-align-last: center;
-
   font-size: 26px;
-
   font-weight: 900;
-
   cursor: pointer;
-
   padding-right: 50px;
 }
 
 .arrow {
   position: absolute;
-
   right: 25px;
-
-  width: 20px;
-
+  width: 34px;
   pointer-events: none;
 }
 
@@ -320,25 +235,17 @@ input[type="time"]::-webkit-calendar-picker-indicator {
 
 .start-btn {
   width: 100%;
-
   height: 95px;
-
   margin-top: 40px;
 
-  border: none;
-
+  border: 3px solid #555;
   border-radius: 12px;
 
-  background: #666;
-
-  color: white;
-
+  background: #ffffff;
+  color: rgb(0, 0, 0);
   font-size: 42px;
-
   font-weight: 900;
-
   cursor: pointer;
-
   transition: 0.2s;
 }
 

@@ -57,7 +57,7 @@ function App() {
 
             <input
               type="time"
-              defaultValue="14:00"
+              defaultValue="15:00"
             />
 
             <img
