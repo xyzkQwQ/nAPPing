@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 import LogoCat from "./assets/LogoCat.webp";
 import CatSleeping from "./assets/CatSleeping.webp";
@@ -13,6 +14,7 @@ function Page2({ time, setTime, hourStart, minuteStart }) {
   // const [timeLeft, setTimeLeft] = useState(time);
 
   const [totalTime] = useState(time);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const timer = setInterval(() => {
@@ -67,7 +69,8 @@ function Page2({ time, setTime, hourStart, minuteStart }) {
             {minutes}:{seconds.toString().padStart(2, "0")}
           </div>
 
-          <div className="remaining">temps restant</div>
+          <div className="remaining">Minutes
+            <br />restantes</div>
         </div>
 
         <h2>
@@ -77,7 +80,12 @@ function Page2({ time, setTime, hourStart, minuteStart }) {
 
       {/* BOUTON */}
 
-      <button className="start-btn">Arrêter la sieste</button>
+      <button 
+        className="start-btn"
+        onClick={() => navigate("/reveil")}
+        >
+        Arrêter la sieste
+      </button>
     </div>
   );
 }

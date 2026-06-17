@@ -43,6 +43,7 @@ function Accueil({ time, setTime, hourStart, setHourStart, minuteStart, setMinut
     <>
       <div className="container">
         {/* HEADER */}
+        <div className="page-content">
         <header className="header">
           <div className="logoCat">
             <img src={LogoCat} className="logo" alt="logo" />
@@ -120,6 +121,7 @@ function Accueil({ time, setTime, hourStart, setHourStart, minuteStart, setMinut
             </div>
           </div>
         </section>
+        </div>
 
         {/* Bouton */}
 
