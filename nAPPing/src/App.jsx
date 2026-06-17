@@ -3,6 +3,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 import Accueil from "./Accueil";
 import Page2 from "./Page2";
+import Page3 from "./Page3";
 
 const App = () => {
   const [time, setTime] = useState(600);
@@ -23,8 +24,7 @@ const App = () => {
           } 
           />
 
-         <Route path="/sieste" 
-          element={
+         <Route path="/sieste" element={
           <Page2 
           time={time} 
           setTime={setTime}
@@ -32,6 +32,14 @@ const App = () => {
           minuteStart={minuteStart}/>
          } 
          />
+
+         <Route path="/reveil" element={
+          <Page3 
+          />} 
+        />
+          
+
+
       </Routes>
     </BrowserRouter>
   );

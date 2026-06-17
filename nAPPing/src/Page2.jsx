@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 
 import LogoCat from "./assets/LogoCat.webp";
 import CatSleeping from "./assets/CatSleeping.webp";
@@ -11,6 +11,8 @@ import "./Page2.css";
  */
 function Page2({ time, setTime, hourStart, minuteStart }) {
   // const [timeLeft, setTimeLeft] = useState(time);
+
+  const [totalTime] = useState(time);
 
   useEffect(() => {
     const timer = setInterval(() => {
@@ -28,16 +30,17 @@ function Page2({ time, setTime, hourStart, minuteStart }) {
 
   const minutes = Math.floor(time / 60);
   const seconds = time % 60;
+  const progress = ((totalTime - time) / totalTime) * 100;
+
   let endHour = hourStart;
   let endMinute = minuteStart + Math.floor(time / 60);
   if (endMinute >= 60) {
-  endHour += Math.floor(endMinute / 60);
-  endMinute = endMinute % 60;
-}
+    endHour += Math.floor(endMinute / 60);
+    endMinute = endMinute % 60;
+  }
 
   return (
     <div className="container">
-      
       {/* HEADER */}
       <header className="header">
         <div className="logoCat">
@@ -54,7 +57,12 @@ function Page2({ time, setTime, hourStart, minuteStart }) {
       {/* TIMER */}
 
       <section className="timer-section">
-        <div className="circle">
+        <div
+          className="circle"
+          style={{
+            background: `conic-gradient(#999 ${progress}%, #ddd ${progress}% 100%)`,
+          }}
+        >
           <div className="time">
             {minutes}:{seconds.toString().padStart(2, "0")}
           </div>
@@ -62,7 +70,9 @@ function Page2({ time, setTime, hourStart, minuteStart }) {
           <div className="remaining">temps restant</div>
         </div>
 
-        <h2>Sieste prévue jusqu'à {endHour}h{endMinute.toString().padStart(2, "0")}</h2>
+        <h2>
+          Sieste prévue jusqu'à {endHour}h{endMinute.toString().padStart(2, "0")}
+        </h2>
       </section>
 
       {/* BOUTON */}
@@ -71,6 +81,5 @@ function Page2({ time, setTime, hourStart, minuteStart }) {
     </div>
   );
 }
-
 
 export default Page2;
