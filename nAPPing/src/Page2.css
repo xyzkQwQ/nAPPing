@@ -34,43 +34,6 @@ body {
   display: flex;
   flex-direction: column;
 }
-/* HEADER */
-
-.header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  border-bottom: 1px solid #eee;
-  padding-bottom: 5px;
-}
-
-.logoCat {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 10px;
-}
-
-.logo {
-  width: 90px;
-}
-
-.logoCat span {
-  color: #8c8c8c;
-  font-size: 26px;
-  font-weight: 900;
-}
-
-.header h1 {
-  color: black;
-  font-size: 56px;
-  font-weight: 900;
-  text-align: center;
-}
-
-.sleeping {
-  width: 130px;
-}
 
 /* TIMER */
 

@@ -1,9 +1,6 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-import LogoCat from "./assets/LogoCat.webp";
-import CatSleeping from "./assets/CatSleeping.webp";
-
 import "./Page2.css";
 
 /**
@@ -21,14 +18,16 @@ function Page2({ time, setTime, hourStart, minuteStart }) {
       setTime((prev) => {
         if (prev <= 0) {
           clearInterval(timer);
+          navigate("/reveil");
           return 0;
         }
+
         return prev - 1;
       });
     }, 1000);
 
     return () => clearInterval(timer);
-  }, []);
+  }, [navigate]);
 
   const minutes = Math.floor(time / 60);
   const seconds = time % 60;
@@ -42,22 +41,7 @@ function Page2({ time, setTime, hourStart, minuteStart }) {
   }
 
   return (
-    <div className="container">
-      {/* HEADER */}
-      <header className="header">
-        <div className="logoCat">
-          <img src={LogoCat} className="logo" alt="logo" />
-
-          <span>nAPPing</span>
-        </div>
-
-        <h1>Sieste en cours...</h1>
-
-        <img src={CatSleeping} className="sleeping" alt="chat" />
-      </header>
-
-      {/* TIMER */}
-
+    <>
       <section className="timer-section">
         <div
           className="circle"
@@ -69,8 +53,11 @@ function Page2({ time, setTime, hourStart, minuteStart }) {
             {minutes}:{seconds.toString().padStart(2, "0")}
           </div>
 
-          <div className="remaining">Minutes
-            <br />restantes</div>
+          <div className="remaining">
+            Minutes
+            <br />
+            restantes
+          </div>
         </div>
 
         <h2>
@@ -80,13 +67,10 @@ function Page2({ time, setTime, hourStart, minuteStart }) {
 
       {/* BOUTON */}
 
-      <button 
-        className="start-btn"
-        onClick={() => navigate("/reveil")}
-        >
+      <button className="start-btn" onClick={() => navigate("/reveil")}>
         Arrêter la sieste
       </button>
-    </div>
+    </>
   );
 }
 

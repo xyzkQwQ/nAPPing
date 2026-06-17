@@ -1,9 +1,6 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-import LogoCat from "./assets/LogoCat.webp";
-import CatSleeping from "./assets/CatSleeping.webp";
-
 import BellSong from "./assets/BellSong.svg";
 import ClockSong from "./assets/ClockSong.svg";
 import ArrowDown from "./assets/ArrowDown.svg";
@@ -13,12 +10,10 @@ import "./Accueil.css";
 /**
  * Premier composant affiché, permet de régler la durée du timer
  */
-function Accueil({ time, setTime, hourStart, setHourStart, minuteStart, setMinuteStart }) {
-  // const [duration, setDuration] = useState(20);
+function Accueil({ time, setTime, hourStart, setHourStart, minuteStart, setMinuteStart, alarm, setAlarm }) {
   const navigate = useNavigate();
 
   const [reminder, setReminder] = useState(false);
-  const [alarm, setAlarm] = useState("Hisashiburi");
 
   /**
    * Fonction qui redirige vers la page 2
@@ -41,21 +36,7 @@ function Accueil({ time, setTime, hourStart, setHourStart, minuteStart, setMinut
 
   return (
     <>
-      <div className="container">
-        {/* HEADER */}
-        <div className="page-content">
-        <header className="header">
-          <div className="logoCat">
-            <img src={LogoCat} className="logo" alt="logo" />
-
-            <span>nAPPing</span>
-          </div>
-
-          <h1>Planifiez votre sieste</h1>
-
-          <img src={CatSleeping} className="sleeping" alt="chat" />
-        </header>
-
+      <div className="page-content">
         {/* LIGNE 1 */}
 
         <section className="row">
@@ -113,7 +94,6 @@ function Accueil({ time, setTime, hourStart, setHourStart, minuteStart, setMinut
             <div className="select-box">
               <select value={alarm} onChange={(e) => setAlarm(e.target.value)}>
                 <option>KittyJJK</option>
-
                 <option>Hisashiburi</option>
               </select>
 
@@ -121,14 +101,12 @@ function Accueil({ time, setTime, hourStart, setHourStart, minuteStart, setMinut
             </div>
           </div>
         </section>
-        </div>
-
-        {/* Bouton */}
-
-        <button className="start-btn" onClick={startTime}>
-          Lancer la sieste
-        </button>
       </div>
+
+      {/* Bouton */}
+      <button className="start-btn" onClick={startTime}>
+        Lancer la sieste
+      </button>
     </>
   );
 }
