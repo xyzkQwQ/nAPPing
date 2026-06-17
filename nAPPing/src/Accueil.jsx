@@ -13,16 +13,30 @@ import "./Accueil.css";
 /**
  * Premier composant affiché, permet de régler la durée du timer
  */
-function Accueil({ time, setTime }) {
+function Accueil({ time, setTime, hourStart, setHourStart, minuteStart, setMinuteStart }) {
   // const [duration, setDuration] = useState(20);
   const navigate = useNavigate();
 
   const [reminder, setReminder] = useState(false);
   const [alarm, setAlarm] = useState("Hisashiburi");
 
+  /**
+   * Fonction qui redirige vers la page 2
+   */
   function startTime() {
     // redirection de l'utilisation vers la page de sieste
     navigate("/sieste");
+  }
+
+  /**
+   * Fonction qui gère la modification de l'heure
+   */
+  function handleHourChange(event) {
+    const value = event.target.value;
+    const [hour, minute] = value.split(":");
+    // TODO appeler le "setHour" et "setMinutes"
+    setHourStart(Number(hour));
+    setMinuteStart(Number(minute));
   }
 
   return (
@@ -50,7 +64,7 @@ function Accueil({ time, setTime }) {
             <label>Heure de la sieste</label>
 
             <div className="input-box">
-              <input type="time" defaultValue="15:00" />
+              <input type="time" onChange={handleHourChange} defaultValue={hourStart + ":" + minuteStart} />
 
               <img src={ClockSong} className="icon" alt="clock" />
             </div>
