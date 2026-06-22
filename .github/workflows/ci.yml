@@ -15,5 +15,12 @@ jobs:
     steps:
       - name: Etape 1 - Là où tout commence
         run: echo "It's alive! ALIIIIIVE!"
+        
       - name: Informations diverses
         run: echo "Le job a été déclenché par ${{ github.event_name }}"
+
+      - name: Informations diverses
+        run: | # Le | permet de chaîner les commandes
+          echo "Le job a été déclenché par ${{ github.event_name }}"
+          echo "Ce job tourne sur ${{ runner.os }}"
+          echo "La branche est ${{ github.ref }} sur le dépôt ${{ github.repository }}"
