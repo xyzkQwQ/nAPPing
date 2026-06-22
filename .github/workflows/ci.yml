@@ -1,4 +1,4 @@
-name : Github Action learning
+name: Github Action learning
 
 # Permissions minimales pour le workflow
 permissions:
@@ -6,8 +6,8 @@ permissions:
 
 # Il est possible d'utiliser des variables d'environnement en utilisant ${{ <nom-variable> }}
 # https://docs.github.com/en/actions/reference/workflows-and-actions/contexts
-run-name : ${{ github.actor }} apprentissage de Github Action
-on : [push, workflow_dispatch] # se délenche sur un "push" et peut être démarrer manuellement ("workflow_action")
+run-name: ${{ github.actor }} apprentissage de Github Action
+on: [push, workflow_dispatch] # se délenche sur un "push" et peut être démarrer manuellement ("workflow_action")
 
 jobs:
   Github-action-learning:
@@ -15,3 +15,5 @@ jobs:
     steps:
       - name: Etape 1 - Là où tout commence
         run: echo "It's alive! ALIIIIIVE!"
+      - name: Informations diverses
+      - run: echo "Le job a été déclenché par ${{ github.event_name }}"
