@@ -16,4 +16,4 @@ jobs:
       - name: Etape 1 - Là où tout commence
         run: echo "It's alive! ALIIIIIVE!"
       - name: Informations diverses
-      - run: echo "Le job a été déclenché par ${{ github.event_name }}"
+        run: echo "Le job a été déclenché par ${{ github.event_name }}"
