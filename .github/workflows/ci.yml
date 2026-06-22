@@ -33,6 +33,3 @@ jobs:
         with:
           node-version: 24
           cache: npm
-
-      - name: Installation des dépendances
-        run: npm install --frozen-lockfile
