@@ -25,5 +25,14 @@ jobs:
           echo "Ce job tourne sur ${{ runner.os }}"
           echo "La branche est ${{ github.ref }} sur le dépôt ${{ github.repository }}"
 
-      - name: Récupération du code
+      - name: Récupération du code / Checkout code
         uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v6
+        with:
+          node-version: 24
+          cache: npm
+
+      - name: Installation des dépendances
+        run: npm install --frozen-lockfile
