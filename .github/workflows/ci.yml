@@ -41,6 +41,8 @@ jobs:
     name: Build de production
     runs-on: ubuntu-latest
 
+
+
     steps:
       - name: Upload des artefacts de build
         uses: actions/upload-artifact@v7
@@ -64,9 +66,10 @@ jobs:
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
-      
 
-      steps:
+
+
+    steps:
       - name: Téléchargement des artefacts de build
         uses: actions/download-artifact@v8
         with:
