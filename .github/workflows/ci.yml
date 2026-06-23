@@ -41,9 +41,22 @@ jobs:
     name: Build de production
     runs-on: ubuntu-latest
 
-
-
     steps:
+      - name: Setup Node.js
+        uses: actions/setup-node@v6
+        with:
+          node-version: 24
+          cache: npm
+
+      - name: Récupération du code / Checkout code
+        uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd
+
+      - name: Installation des dépendances
+        run: npm install --frozen-lockfile
+
+      - name: Build pour production
+        run: npm run build
+
       - name: Upload des artefacts de build
         uses: actions/upload-artifact@v7
         with:
@@ -66,8 +79,6 @@ jobs:
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
-
-
 
     steps:
       - name: Téléchargement des artefacts de build
