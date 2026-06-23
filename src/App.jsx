@@ -14,10 +14,10 @@ const App = () => {
 
   return (
     <div className="container">
-      <BrowserRouter>
+      <BrowserRouter basename={import.meta.env.BASE_URL}>
         <Routes>
           <Route
-            path={import.meta.env.VITE_BASE_URL ? `${import.meta.env.VITE_BASE_URL}/` : "/"}
+            path="/"
             element={
               <>
                 <Header title="Planifiez votre sieste" />
@@ -27,7 +27,7 @@ const App = () => {
           />
 
           <Route
-            path={import.meta.env.VITE_BASE_URL ? `${import.meta.env.VITE_BASE_URL}/sieste` : "/sieste"}
+            path="/sieste"
             element={
               <>
                 <Header title="Sieste en cours..." />
@@ -38,7 +38,7 @@ const App = () => {
           />
 
           <Route
-            path={import.meta.env.VITE_BASE_URL ? `${import.meta.env.VITE_BASE_URL}/reveil` : "/reveil"}
+            path="/reveil"
             element={
               <>
                 <Header title="It's time!" />
