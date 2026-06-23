@@ -42,14 +42,14 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      - name: Récupération du code / Checkout code
+        uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd
+
       - name: Setup Node.js
         uses: actions/setup-node@v6
         with:
           node-version: 24
           cache: npm
-
-      - name: Récupération du code / Checkout code
-        uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd
 
       - name: Installation des dépendances
         run: npm install --frozen-lockfile
