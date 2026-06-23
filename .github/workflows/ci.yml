@@ -36,3 +36,9 @@ jobs:
 
       - name: Installation des dépendances
         run: npm install --frozen-lockfile
+
+      - name: Linting (ESLint)
+        run: npm run lint
+
+      - name: Tests unitaires
+        run: npm run test
