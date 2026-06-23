@@ -10,7 +10,7 @@ run-name: ${{ github.actor }} apprentissage de Github Action
 on: [push, workflow_dispatch] # se délenche sur un "push" et peut être démarrer manuellement ("workflow_action")
 
 jobs:
-  Github-action-learning:
+  first-job:
     runs-on: ubuntu-24.04
     steps:
       - name: Etape 1 - Là où tout commence
@@ -40,7 +40,7 @@ jobs:
   build:
     name: Build de production
     runs-on: ubuntu-latest
-
+    needs: first-job
     steps:
       - name: Récupération du code / Checkout code
         uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd
