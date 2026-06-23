@@ -64,3 +64,23 @@ jobs:
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
+      
+
+      steps:
+      - name: Téléchargement des artefacts de build
+        uses: actions/download-artifact@v8
+        with:
+          name: dist
+          path: dist/
+
+      - name: Setup GitHub Pages
+        uses: actions/configure-pages@v6
+
+      - name: Upload vers GitHub Pages
+        uses: actions/upload-pages-artifact@v5
+        with:
+          path: dist/
+
+      - name: Déploiement sur GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v5
