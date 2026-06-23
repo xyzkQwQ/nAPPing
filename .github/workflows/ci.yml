@@ -56,6 +56,9 @@ jobs:
 
       - name: Build pour production
         run: npm run build
+        env:
+          NODE_ENV: production
+          VITE_BASE_URL: /nAPPing/
 
       - name: Upload des artefacts de build
         uses: actions/upload-artifact@v7
