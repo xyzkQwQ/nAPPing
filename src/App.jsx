@@ -4,8 +4,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Accueil from "./Accueil";
 import Page2 from "./Page2";
 import Page3 from "./Page3";
-import Header from "./Header"
-
+import Header from "./Header";
 
 const App = () => {
   const [time, setTime] = useState(600);
@@ -15,50 +14,40 @@ const App = () => {
 
   return (
     <div className="container">
-    <BrowserRouter>
-      <Routes>
-        <Route path="/" element={
-          <>
-            <Header title="Planifiez votre sieste" />
-            <Accueil 
-              time={time} 
-              setTime={setTime} 
-              hourStart={hourStart} 
-              setHourStart={setHourStart} 
-              minuteStart={minuteStart} 
-              setMinuteStart={setMinuteStart}
-              alarm={alarm} 
-              setAlarm={setAlarm} />
-            </>
-          } 
+      <BrowserRouter>
+        <Routes>
+          <Route
+            path={import.meta.env.VITE_BASE_URL ? `${import.meta.env.VITE_BASE_URL}/` : "/"}
+            element={
+              <>
+                <Header title="Planifiez votre sieste" />
+                <Accueil time={time} setTime={setTime} hourStart={hourStart} setHourStart={setHourStart} minuteStart={minuteStart} setMinuteStart={setMinuteStart} alarm={alarm} setAlarm={setAlarm} />
+              </>
+            }
           />
 
-         <Route path="/sieste" element={
-          <>
-            <Header title="Sieste en cours..." />
+          <Route
+            path={import.meta.env.VITE_BASE_URL ? `${import.meta.env.VITE_BASE_URL}/sieste` : "/sieste"}
+            element={
+              <>
+                <Header title="Sieste en cours..." />
 
-            <Page2 
-              time={time} 
-              setTime={setTime}
-              hourStart={hourStart}
-              minuteStart={minuteStart}/>
-          </>
-         } 
-         />
+                <Page2 time={time} setTime={setTime} hourStart={hourStart} minuteStart={minuteStart} />
+              </>
+            }
+          />
 
-         <Route path="/reveil" element={
-          <>
-            <Header title="It's time!" />
-            <Page3
-              alarm={alarm} />
-          </>
-        } 
-        />
-          
-
-
-      </Routes>
-    </BrowserRouter>
+          <Route
+            path={import.meta.env.VITE_BASE_URL ? `${import.meta.env.VITE_BASE_URL}/reveil` : "/reveil"}
+            element={
+              <>
+                <Header title="It's time!" />
+                <Page3 alarm={alarm} />
+              </>
+            }
+          />
+        </Routes>
+      </BrowserRouter>
     </div>
   );
 };
