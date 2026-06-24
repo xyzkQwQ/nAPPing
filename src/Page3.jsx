@@ -34,8 +34,7 @@ function Page3({ alarm }) {
       <img src={BellWakeUp} className="bell" alt="cloche" />
 
       <div className="message">
-        <p>La sieste est terminée.</p>
-        <p>Bonne reprise !</p>
+        <p>La sieste est terminée, Bonne reprise !</p>
       </div>
 
       <div className="music-card">

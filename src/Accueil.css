@@ -1,82 +1,3 @@
-/* RESET */
-
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: Arial, sans-serif;
-  color: black;
-  font-weight: 700;
-  
-}
-
-/* PAGE */
-
-body {
-  background: #f5f5f5;
-}
-
-/* CONTENEUR */
-
-.container {
-  width: 90%;
-  max-width: 1500px;
-  height: calc(100vh - 60px);
-  margin: 30px auto;
-  padding: 40px;
-  display: flex;
-  flex-direction: column;
-  background: white;
-  border: 2px solid #d6d6d6;
-  border-radius: 12px;
-
-
-.page-content {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-}
-
-/* HEADER */
-
-.header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  border-bottom: 1px solid #eee;
-  margin-bottom: 80px;
-}
-
-.logoCat {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 10px;
-}
-
-.logo {
-  width: 90px;
-}
-
-.logoCat span {
-  color: #8c8c8c;
-  font-size: 26px;
-  font-weight: 900;
-}
-
-.header h1 {
-  color: black;
-  font-size: 56px;
-  font-weight: 900;
-  text-align: center;
-}
-
-.sleeping {
-  width: 130px;
-}
-
-/* LIGNES */
-
 .row {
   display: flex;
   gap: 60px;
@@ -85,47 +6,43 @@ body {
 
 .card {
   flex: 1;
+  min-width: 0;
 }
-
-/* TITRES */
 
 label {
   display: block;
   margin-bottom: 18px;
-  font-size: 30px;
+  font-size: clamp(22px, 3vw, 30px);
   font-weight: 900;
 }
-
-/* BLOCS */
 
 .input-box,
 .switch-box,
 .select-box,
 .duration-group {
-  height: 90px;
+  min-height: 90px;
   border: 2px solid #d0d0d0;
   border-radius: 12px;
   background: white;
 }
-
-/* HEURE */
 
 .input-box {
   display: flex;
   align-items: center;
   justify-content: center;
   position: relative;
-  padding: 0 157px;
+  padding: 0 70px;
 }
 
 .input-box input {
   width: 100%;
   height: 100%;
+  min-height: 90px;
   border: none;
   outline: none;
   background: transparent;
   text-align: center;
-  font-size: 30px;
+  font-size: clamp(24px, 3vw, 30px);
   font-weight: 900;
   cursor: pointer;
   appearance: none;
@@ -134,7 +51,7 @@ label {
 input[type="time"]::-webkit-calendar-picker-indicator {
   opacity: 0;
   position: absolute;
-  right: 20px;
+  inset: 0;
   width: 100%;
   height: 100%;
   cursor: pointer;
@@ -147,14 +64,10 @@ input[type="time"]::-webkit-calendar-picker-indicator {
   pointer-events: none;
 }
 
-/* ICONES */
-
 .icon {
   width: 32px;
   height: 32px;
 }
-
-/* DUREE */
 
 .duration-group {
   display: flex;
@@ -165,7 +78,7 @@ input[type="time"]::-webkit-calendar-picker-indicator {
   flex: 1;
   border: none;
   background: white;
-  font-size: 28px;
+  font-size: clamp(22px, 3vw, 28px);
   font-weight: 900;
   cursor: pointer;
 }
@@ -176,17 +89,14 @@ input[type="time"]::-webkit-calendar-picker-indicator {
 
 .duration-group .active {
   background: #9a9a9a;
-
   color: white;
 }
-
-/* RAPPEL */
 
 .switch-box {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 70px;
+  gap: 40px;
   padding: 0 30px;
 }
 
@@ -196,7 +106,7 @@ input[type="time"]::-webkit-calendar-picker-indicator {
   justify-content: center;
   width: 100%;
   gap: 15px;
-  font-size: 24px;
+  font-size: clamp(20px, 3vw, 24px);
 }
 
 .left span {
@@ -209,26 +119,23 @@ input[type="time"]::-webkit-calendar-picker-indicator {
   cursor: pointer;
 }
 
-/* ALARME */
-
 .select-box {
   position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 90px;
 }
 
 .select-box select {
   width: 100%;
-  height: 100%;
+  min-height: 90px;
   border: none;
   outline: none;
   background: transparent;
   appearance: none;
   text-align: center;
   text-align-last: center;
-  font-size: 26px;
+  font-size: clamp(22px, 3vw, 26px);
   font-weight: 900;
   cursor: pointer;
   padding-right: 50px;
@@ -241,28 +148,44 @@ input[type="time"]::-webkit-calendar-picker-indicator {
   pointer-events: none;
 }
 
-/* BOUTON */
+@media (max-width: 768px) {
+  .row {
+    flex-direction: column;
+    gap: 24px;
+    margin-bottom: 24px;
+  }
 
-.start-btn {
-  
-  width: 100%;
-  height: 95px;
-  margin-top: auto;
+  .input-box,
+  .switch-box,
+  .select-box,
+  .duration-group {
+    min-height: 70px;
+  }
 
-  border: 3px solid #555;
-  border-radius: 12px;
+  .input-box,
+  .switch-box {
+    padding: 0 18px;
+  }
 
-  background: #ffffff;
-  color: rgb(0, 0, 0);
-  font-size: 42px;
-  font-weight: 900;
-  cursor: pointer;
-  transition: 0.2s;
+  .input-box input,
+  .select-box select {
+    min-height: 70px;
+  }
+
+  .duration-group {
+    flex-direction: column;
+  }
+
+  .duration-group button {
+    min-height: 58px;
+    border-bottom: 1px solid #eee;
+  }
+
+  .duration-group button:last-child {
+    border-bottom: none;
+  }
+
+  .switch-box {
+    gap: 16px;
+  }
 }
-
-.start-btn:hover {
-  background: #555;
-}
-
-}
-
